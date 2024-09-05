@@ -40,21 +40,20 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
       <label>Input loan amount:</label>
-      <input type="range" id="slider" value="0" min="0" max="500000">
+      <input type="range" id="slider" value="0" min="0" max="500000" step="5000">
 
       <label>Value:</label>
-      <input type="number" id="textInput" value="0" min="0" max="500000">
-      </br>
+      <input type="number" id="textInput" value="0" min="0" max="500000" step="5000">
       <button type="button" class="btn btn-primary" onclick="calculateLoan()">Calculate</button>
 
       <hr>
 
       <div class="row">
         <div class="col-md-6">
-          <p id="monthlyPayment">Monthly Payment: </p>
+          <p id="monthlyPayment">Monthly Payment: £</p>
         </div>
         <div class="col-md-6">
-          <p id="totalPayment">Yearly Payment: </p>
+          <p id="yearlyPayment">Yearly Payment: £</p>
         </div>
       </div>
     </div>
@@ -80,8 +79,13 @@
       var textInput = document.getElementById('textInput');
       textInput.value = value;
     });
-    function msg() {
-      alert("Hello world!");
+    function calculateLoan() {
+      let loanAmount = document.getElementById('slider').value;
+      let monthlyPayment = loanAmount * 0.002;
+      let yearlyPayment = loanAmount * 0.024;
+
+      document.getElementById('monthlyPayment').innerText = `Monthly Payment: £${monthlyPayment.toFixed(2)}`;
+      document.getElementById('yearlyPayment').innerText = `Yearly Payment: £${yearlyPayment.toFixed(2)}`;
     }
   </script>
 
