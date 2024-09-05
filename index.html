@@ -33,6 +33,33 @@
 
   <!-- Add your site or application content here -->
   <p>Hello world! This is HTML5 Boilerplate.</p>
+
+  <h1>Display a Number Field</h1>
+
+  <input type="range" id="slider" value="0" min="0" max="500000">
+  <input type="number" id="textInput" value="0" min="0" max="500000">
+
+  <input type="button" value="Calculate" onclick="msg()">
+
+
+  <script>
+    document.getElementById('textInput').addEventListener('input', function() {
+      var value = this.value;
+      var slider = document.getElementById('slider');
+      slider.value = value;
+    });
+
+    document.getElementById('slider').addEventListener('input', function() {
+      var value = this.value;
+      var textInput = document.getElementById('textInput');
+      textInput.value = value;
+    });
+    function msg() {
+      alert("Hello world!");
+    }
+  </script>
+
+
   <script src="js/app.js"></script>
 
 </body>
