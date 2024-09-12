@@ -12,8 +12,8 @@ document.getElementById('slider').addEventListener('input', function() {
 
 function calculateLoan() {
   let loanAmount = document.getElementById('slider').value;
-  let monthlyPayment = loanAmount * 0.002;
-  let yearlyPayment = loanAmount * 0.024;
+  let monthlyPayment = loanAmount * 0.008;
+  let yearlyPayment = loanAmount * 0.0.096;
 
   document.getElementById('monthlyPayment').innerText = `Monthly Payment: £${monthlyPayment.toFixed(2)}`;
   document.getElementById('yearlyPayment').innerText = `Yearly Payment: £${yearlyPayment.toFixed(2)}`;
