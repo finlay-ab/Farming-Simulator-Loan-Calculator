@@ -45,6 +45,12 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
+
+      function Track_Calculated()
+      {
+        firebase.analytics().logEvent('calculated');
+      }
+
     </script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -73,7 +79,7 @@
               <label for="textInput">Value:</label>
               <input type="number" id="textInput" value="0" min="0" max="500000" step="5000" style="min-width: 6ch;">
               <p><small>Value must be a multiple of 5,000</small></p>
-              <button type="button" class="btn btn-primary" onclick="calculateLoan()">Calculate</button>
+              <button type="button" class="btn btn-primary" onclick="calculateLoan()" onclick="Track_Calculated()">Calculate</button>
             </div>
 
 
