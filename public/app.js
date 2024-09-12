@@ -12,11 +12,11 @@ document.getElementById('slider').addEventListener('input', function() {
 
 function calculateLoan() {
   let loanAmount = document.getElementById('slider').value;
-  let monthlyPayment = loanAmount * 0.008;
-  let yearlyPayment = loanAmount * 0.0.096;
+  let monthlyPayment = loanAmount * (1/300);
+  let yearlyPayment = loanAmount * (12/300);
 
-  document.getElementById('monthlyPayment').innerText = `Monthly Payment: £${monthlyPayment.toFixed(2)}`;
-  document.getElementById('yearlyPayment').innerText = `Yearly Payment: £${yearlyPayment.toFixed(2)}`;
+  document.getElementById('monthlyPayment').innerText = `Monthly Payment: £${Math.floor(monthlyPayment).toFixed(2)}`;
+  document.getElementById('yearlyPayment').innerText = `Yearly Payment: £${Math.floor(yearlyPayment).toFixed(2)}`;
 }
 
 
