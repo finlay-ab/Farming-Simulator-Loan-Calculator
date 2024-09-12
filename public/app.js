@@ -11,6 +11,7 @@ document.getElementById('textInput').addEventListener('input', function() {
     textInput.value = value;
   });
   function calculateLoan() {
+    firebase.analytics().logEvent('Calcualted');
     let loanAmount = document.getElementById('slider').value;
     let monthlyPayment = loanAmount * 0.002;
     let yearlyPayment = loanAmount * 0.024;
