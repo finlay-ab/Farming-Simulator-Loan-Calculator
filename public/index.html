@@ -26,7 +26,7 @@
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+      import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -41,15 +41,18 @@
         appId: "1:462165657807:web:ce60130b283c3889760fba",
         measurementId: "G-3N5FWXRK9Q"
       };
-
+      
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
 
-      function Track_Calculated()
-      {
-        firebase.analytics().logEvent('calculated');
-      }
+      document.getElementById('calculate_btn')
+            .addEventListener('click', function () {
+                calculateLoan();
+                logEvent(analytics, 'Calculated');
+            });
+
+ 
 
     </script>
 
@@ -79,7 +82,7 @@
               <label for="textInput">Value:</label>
               <input type="number" id="textInput" value="0" min="0" max="500000" step="5000" style="min-width: 6ch;">
               <p><small>Value must be a multiple of 5,000</small></p>
-              <button type="button" class="btn btn-primary" onclick="calculateLoan()" onclick="Track_Calculated()">Calculate</button>
+              <button type="button" id="calculate_btn" class="btn btn-primary">Calculate</button>
             </div>
 
 
@@ -107,7 +110,8 @@
       </div>
     </footer>
    
-    <script src="app.js"></script>
+    <script src="app.js">
+    </script>
 
   </body>
 </html>
